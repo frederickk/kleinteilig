@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Material+Icons&display=swap');
+@import 'sass/mixins';
+
+:root {
+  --background: #fff;
+  --light-background: #edeee5;
+  --light-background--hover: #e2e2dd;
+  --border-radius: 4px;
+  --default-font-family: 'IBM Plex Mono', monospace;
+  --error-color: #f00;
+  --transition-ms: 100ms;
+  --type-color: #1d1e17;
+  --type-color--hover: #fff;
+}
+
+body {
+  background-color: var(--background, #fff);
+  color: var(--type-color, #1d1e17);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-family: var(--default-font-family);
+  font-size: 14px;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+canvas {
+  height: 100%;
+  width: 100%;
+}
+
+header {
+  height: 0;
+  margin: 1ch;
+  opacity: 0;
+  text-align: center;
+  transition: opacity var(--transition-ms) ease-in-out;
+  width: 100%;
+  z-index: 1000;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+button {
+  @include mq-min(768px) {
+    padding: 1em;
+  }
+
+  appearance: none;
+  background-color: var(--light-background);
+  border: 0;
+  border-radius: var(--border-radius,);
+  box-sizing: border-box;
+  color: var(--type-color);
+  cursor: pointer;
+  display: inline-block;
+  flex: 1;
+  font-family: inherit;
+  font-size: 16px;
+  padding: .5em;
+  text-align: center;
+  transition: background-color var(--transition-ms) ease-in-out, color var(--transition-ms) ease-in-out;
+  // width: 100%;
+
+  &:hover {
+    background-color: var(--type-color);
+    color: var(--type-color--hover);
+  }
+}
+
+.container {
+  box-sizing: border-box;
+  height: 100vh;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 100vw;
+}

@@ -1,0 +1,24 @@
+{% set relative_dir = relative_dir | default('./') %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="apple-touch-icon" href="{{ relative_dir }}images/icon-192.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="manifest" href="{{ relative_dir }}manifest.json" />
+    <title>Kleinteilig</title>
+    <link rel="stylesheet" href="{{ relative_dir }}index.css" />
+  </head>
+
+  <body>
+    <header>
+      {% block header %}{% endblock %}
+    </header>
+
+    {% block body %}{% endblock %}
+
+    <script src="{{ relative_dir }}index.js"></script>
+  </body>
+</html>
