@@ -5,28 +5,6 @@ const NunjucksWebpackPlugin = require('nunjucks-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const data = {
-};
-
-const loadJSONData = (data) => {
-  let output = [];
-
-  Object.keys(data).map((key) => {
-    output.push({
-      from: `./src/index.njk`,
-      to: `./${key}/index.html`,
-      context: {
-        data: data[key],
-        request: {
-          url: `${key}`,
-        }
-      }
-    });
-  });
-
-  return output;
-}
-
 module.exports = {
   mode: (process.env.NODE_ENV === 'production')
     ? 'production'
@@ -36,6 +14,9 @@ module.exports = {
       path.join(__dirname, 'src/index'),
       path.join(__dirname, 'src/index.scss'),
     ],
+    indexTwojs: [
+      path.join(__dirname, 'src/indexTwojs'),
+    ]
   },
   resolve: {
     extensions: ['.ts', '.js'],
@@ -79,16 +60,14 @@ module.exports = {
   },
   plugins: [
     new NunjucksWebpackPlugin({
-      // TODO(frederickk): Determine how to pass request object to templates.
       templates: [{
         from: './src/index.njk',
         to: './index.html',
-        context: {
-          request: {
-            url: '',
-          }
-        },
-      }, ...loadJSONData(data)],
+      }, {
+        from: `./src/indexTwojs.njk`,
+        to: `./twojs/index.html`,
+        context: {}
+      }],
       configure: {
         watch: true,
       },
@@ -113,7 +92,7 @@ module.exports = {
   devServer: {
     compress: true,
     contentBase: path.join(__dirname, 'dist'),
-    filename: 'index.js',
+    filename: '[name].js',
     hot: true,
     liveReload: true,
     port: 8080,
@@ -122,7 +101,7 @@ module.exports = {
   },
   output: {
     assetModuleFilename: 'images/[name][ext]',
-    filename: 'index.js',
+    filename: '[name].js', // '[name].min.js',
     publicPath: './dist',
   },
 };

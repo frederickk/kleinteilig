@@ -30,6 +30,22 @@ body {
 canvas {
   height: 100%;
   width: 100%;
+
+  &.canvas-gl {
+    background-color: var(--background);
+    height: 100%;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+
+  &.--invisible {
+    display: none;
+  }
 }
 
 header {

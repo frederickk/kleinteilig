@@ -1,52 +1,27 @@
 import * as paper from 'paper';
-import {BluetoothHelper} from './ts/bluetoothHelper';
-import {MidiHelper} from './ts/midiHelper';
+import {Kleinteilig} from './kleinteilig';
 // import {_0x14 as Sketch} from './ts/sketch/0x14';
 // import {_0x15 as Sketch} from './ts/sketch/0x15';
 // import {_0x16 as Sketch} from './ts/sketch/0x16';
-import {_0x17 as Sketch} from './ts/sketch/0x17';
+// import {_0x17 as Sketch} from './ts/sketch/0x17';
+import {_0x18 as Sketch} from './ts/sketch/0x18';
 
-export class Kleinteilig {
-  private canvas_: HTMLCanvasElement;
-  private sketch_: Sketch | null;
+export class Index extends Kleinteilig {
+  protected sketch_?: Sketch;
 
   constructor() {
-    // Instantiate Web MIDI in global Window.
-    window.Midi = new MidiHelper();
-    window.Midi.connect();
+    super();
 
-    // Instantiate web Bluetooth in global Window.
-    window.Bluetooth = new BluetoothHelper({
-      filters: [{
-        services: [BluetoothHelper.MIDI_UUID],
-      }],
-    });
-    const connectBluetooth = document.querySelector('#connect-bluetooth');
-    connectBluetooth?.addEventListener(('click'), () => {
-      window.Bluetooth.connect();
-    });
-
-    this.canvas_ = document.querySelector('#canvas') as HTMLCanvasElement;
-
-    paper.install(window);
+    // paper.install(window);
     paper.setup(this.canvas_);
     window.addEventListener('DOMContentLoaded', this.setup.bind(this));
 
-    this.sketch_ = new Sketch();
-
-    this.attach_();
-  }
-
-  attach_() {
-    window.Midi.callback = (data: any) => {
-      this.sketch_?.dataHandler(data);
-    }
-    window.Bluetooth.callback = (data: any) => {
-      this.sketch_?.dataHandler(data);
-    }
     paper.view.onResize = (event: paper.Event) => {
       console.log('resize', event);
     }
+
+    this.sketch_ = new Sketch();
+    this.attach_(this.sketch_);
   }
 
   setup() {
@@ -67,4 +42,4 @@ export class Kleinteilig {
   }
 }
 
-new Kleinteilig();
+new Index();

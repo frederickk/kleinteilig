@@ -19,6 +19,8 @@
 
     {% block body %}{% endblock %}
 
-    <script src="{{ relative_dir }}index.js"></script>
+    {% block script %}
+      <script src="{{ relative_dir }}index.js"></script>
+    {% endblock %}
   </body>
 </html>

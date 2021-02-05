@@ -1,5 +1,7 @@
 {% extends 'templates/base.njk' %}
 
+{% set relative_dir = '../' %}
+
 {% block header %}
   <button id="connect-bluetooth">Connect</button>
 {% endblock %}
@@ -8,6 +10,8 @@
   <div id="container" class="container">
     <canvas id="canvas" resize></canvas>
   </div>
+{% endblock %}
 
-  <canvas id="canvas-gl" class="canvas-gl --invisible"></canvas>
+{% block script %}
+  <script src="{{ relative_dir }}indexTwojs.js"></script>
 {% endblock %}
