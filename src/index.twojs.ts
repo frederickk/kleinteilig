@@ -1,8 +1,8 @@
 import * as Two from 'twojs-ts';
 import {Kleinteilig} from './kleinteilig';
-import {_0x18tj as Sketch} from './ts/sketch/0x18Twojs';
+import {_0x18t as Sketch} from './ts/sketch/0x18.twojs';
 
-export class IndexTwojs extends Kleinteilig {
+export class indext extends Kleinteilig {
   protected sketch_?: Sketch;
   protected two_!: Two;
 
@@ -40,5 +40,5 @@ export class IndexTwojs extends Kleinteilig {
   }
 }
 
-new IndexTwojs();
+new indext();
 

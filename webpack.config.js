@@ -14,8 +14,11 @@ module.exports = {
       path.join(__dirname, 'src/index'),
       path.join(__dirname, 'src/index.scss'),
     ],
-    indexTwojs: [
-      path.join(__dirname, 'src/indexTwojs'),
+    'index.twojs': [
+      path.join(__dirname, 'src/index.twojs'),
+    ],
+    'index.threejs': [
+      path.join(__dirname, 'src/index.threejs'),
     ]
   },
   resolve: {
@@ -64,8 +67,12 @@ module.exports = {
         from: './src/index.njk',
         to: './index.html',
       }, {
-        from: `./src/indexTwojs.njk`,
+        from: `./src/index.twojs.njk`,
         to: `./twojs/index.html`,
+        context: {}
+      }, {
+        from: `./src/index.threejs.njk`,
+        to: `./threejs/index.html`,
         context: {}
       }],
       configure: {

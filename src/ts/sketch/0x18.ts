@@ -1,5 +1,5 @@
 
-import {shader, textureBlob} from '../dither-shader-defs';
+import {shader, textureBlob} from '../shader/shaderDitherDefs';
 // import * as VideoContext from 'videocontext';
 import VideoContext from '../videocontext';
 import {defs, Sketch, OPZ, paper} from './_sketchBase';

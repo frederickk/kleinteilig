@@ -1,4 +1,5 @@
 import * as paper from 'paper';
+import {randomObj} from '../utils';
 import {NoisePath} from '../noisePath';
 
 export interface ColorsObject {
@@ -31,18 +32,6 @@ export const opzInputHandler = (path: NoisePath | undefined, callback: Function 
   if (path && callback) {
     callback(path.paths);
   }
-}
-
-/** @return Random value from given Array. */
-export const randomArr = (arr: Array<any>) => {
-  return arr[arr.length * Math.random() << 0];
-}
-
-/** @return Random value from given Object. */
-export const randomObj = (obj: any) => {
-  const keys = Object.keys(obj);
-
-  return obj[keys[keys.length * Math.random() << 0]];
 }
 
 /** @return Random color. */

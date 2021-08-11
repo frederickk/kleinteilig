@@ -1,11 +1,10 @@
+export const textureBlob = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACAQAAAABazTCJAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAAxJREFUeAFjdGBsAAABSgDDZcqZPAAAAABJRU5ErkJggg==';
 export const shader = {
 	vertex: `
     attribute vec2 a_position;
     attribute vec2 a_textureCoords;
-
     uniform mat3 u_matrix;
     uniform vec2 u_resolution;
-
     varying vec2 v_textureCoords;
 
     void main() {
@@ -19,14 +18,14 @@ export const shader = {
   `,
 	fragment: `
     precision mediump float;
-
     uniform sampler2D u_image;
     varying vec2 v_textureCoords;
 
     void main() {
       vec4 texel = texture2D(u_image, v_textureCoords);
       vec4 color = vec4(v_textureCoords.x, v_textureCoords.y, 1.0, 1.0);
-		  gl_FragColor = mix(texel, color, texel.a);
+      // gl_FragColor = mix(texel, color, texel.a);
+      gl_FragColor = texel * color;
     }
   `,
 };

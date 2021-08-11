@@ -1,3 +1,4 @@
+import {randomArr} from '../utils';
 import {Sketch, OPZ, paper, defs} from './_sketchBase';
 
 export class _0x15 extends Sketch {
@@ -69,7 +70,7 @@ export class _0x15 extends Sketch {
 
           paths[r].blendMode = 'multiply';
           paths[r].tweenTo({
-            fillColor: defs.randomArr([
+            fillColor: randomArr([
               this.colors.pink,
               this.colors.purple,
               // utils.colors.green,
@@ -88,7 +89,7 @@ export class _0x15 extends Sketch {
 
           paths[r].blendMode = 'overlay';
           paths[r].tweenTo({
-            fillColor: defs.randomArr([
+            fillColor: randomArr([
               this.colors.bronze,
               this.colors.grey,
               // utils.colors.red,

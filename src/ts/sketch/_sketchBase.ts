@@ -44,7 +44,7 @@ class Sketch {
         interval: 20,
         radius,
       }]),
-    }
+    };
   }
 
   setup() {}
@@ -58,5 +58,5 @@ class Sketch {
   }
 }
 
-export {Sketch, paper, OPZ, NoisePath, defs};
+export {defs, Sketch, paper, OPZ, NoisePath};
 

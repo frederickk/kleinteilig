@@ -1,0 +1,17 @@
+{% extends 'templates/base.njk' %}
+
+{% set relative_dir = '../' %}
+
+{% block header %}
+  <button id="connect-bluetooth">Connect</button>
+{% endblock %}
+
+{% block body %}
+  <div id="container" class="container">
+    <canvas id="canvas" resize></canvas>
+  </div>
+{% endblock %}
+
+{% block script %}
+  <script src="{{ relative_dir }}index.twojs.js"></script>
+{% endblock %}

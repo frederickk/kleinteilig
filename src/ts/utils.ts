@@ -1,4 +1,12 @@
-// import * as paper from 'paper';
+export const randomArr = (arr: Array<any>) => {
+  return arr[arr.length * Math.random() << 0];
+};
+
+export const randomObj = (obj: any) => {
+  const keys = Object.keys(obj);
+
+  return obj[keys[keys.length * Math.random() << 0]];
+};
 
 export const fade = (t: number): number => {
   return t * t * t * (t * (t * 6 - 15) + 10);

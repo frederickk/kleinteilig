@@ -142,7 +142,7 @@ export class NoisePath {
 
         // 2D Noise
         segment.point.y = map(
-          Noise.perlin(this.offset_.y, i) * this.multiplier_,
+          new Noise(this.offset_.y, i).perlin() * this.multiplier_,
           0,
           1,
           (paper.view.bounds.center.y + path.data.translate.y) + path.data.radius * (sin * this.distort_),
@@ -151,7 +151,7 @@ export class NoisePath {
 
         // 3D Noise
         segment.point.x = map(
-          Noise.perlin(this.offset_.x, i) * this.multiplier_,
+          new Noise(this.offset_.x, i).perlin() * this.multiplier_,
           0,
           1,
           (paper.view.bounds.center.x + path.data.translate.x) + path.data.radius * (cos * this.distort_),
